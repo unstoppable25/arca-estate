@@ -30,7 +30,7 @@ export function AIPrestigeCurator() {
         ]
     } as any);
 
-    const { messages = [], error, reload } = chat;
+    const { messages = [], error, reload } = chat as any;
     const isActuallyLoading = (chat as any).isLoading ||
         (chat as any).status === 'streaming' ||
         (chat as any).status === 'submitted' ||
@@ -84,11 +84,11 @@ export function AIPrestigeCurator() {
             }
 
             // Method 2: HandleSubmit fallback
-            if (typeof chat.handleSubmit === 'function') {
+            if (typeof (chat as any).handleSubmit === 'function') {
                 if (typeof (chat as any).setInput === 'function') {
                     (chat as any).setInput(content);
                 }
-                chat.handleSubmit(e as any);
+                (chat as any).handleSubmit(e as any);
                 return;
             }
         } catch (err) {
@@ -198,7 +198,7 @@ export function AIPrestigeCurator() {
                                     <>
                                         {/* Messages */}
                                         <div ref={scrollRef} className="flex-1 overflow-y-auto p-8 space-y-8 no-scrollbar">
-                                            {messages.map((m) => {
+                                            {messages.map((m: any) => {
                                                 const displayContent = getMessageContent(m);
                                                 if (!displayContent) return null; // Skip empty messages if any remain
 

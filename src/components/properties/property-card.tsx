@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Bed, Bath, Maximize, Eye, ShieldCheck } from 'lucide-react';
+import { MapPin, ArrowRight, BedDouble, Bath, Maximize, ShieldCheck, Eye } from 'lucide-react';
 import { Database } from '@/types/supabase';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
@@ -45,12 +45,12 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
 
                     {/* Status Badges */}
                     <div className="absolute top-6 left-6 flex flex-col gap-2">
-                        {property.is_featured && (
+                        {(property as any).is_featured && (
                             <div className="bg-blue-600 text-[10px] font-black text-white px-3 py-1.5 rounded-full uppercase tracking-tighter flex items-center gap-1.5 shadow-xl shadow-blue-600/20">
                                 <ShieldCheck size={12} /> Elite Listing
                             </div>
                         )}
-                        {property.self_viewing_enabled && (
+                        {(property as any).self_viewing_enabled && (
                             <div className="bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-black text-blue-600 px-3 py-1.5 rounded-full uppercase tracking-tighter flex items-center gap-1.5">
                                 <Eye size={12} /> Instant Access
                             </div>
@@ -82,27 +82,32 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
                     <div className="mt-8 flex items-center justify-between pt-6 border-t border-gray-50 dark:border-white/5">
                         <div className="flex gap-6">
                             <div className="flex items-center gap-2 group/stat">
-                                <div className="h-10 w-10 rounded-xl bg-gray-50 dark:bg-white/5 flex items-center justify-center text-gray-400 group-hover/stat:text-blue-600 transition-colors">
-                                    <Bed size={20} />
+                                <div className="h-8 w-8 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center group-hover/stat:scale-110 transition-transform">
+                                    <BedDouble size={14} />
                                 </div>
                                 <div>
                                     <p className="text-[10px] font-black uppercase text-gray-400 tracking-tighter">Beds</p>
-                                    <p className="text-sm font-bold dark:text-white">{property.bedrooms}</p>
+                                    <p className="text-sm font-bold dark:text-white">{(property as any).bedrooms}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 group/stat">
-                                <div className="h-10 w-10 rounded-xl bg-gray-50 dark:bg-white/5 flex items-center justify-center text-gray-400 group-hover/stat:text-blue-600 transition-colors">
-                                    <Bath size={20} />
+                                <div className="h-8 w-8 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center group-hover/stat:scale-110 transition-transform">
+                                    <Bath size={14} />
                                 </div>
                                 <div>
                                     <p className="text-[10px] font-black uppercase text-gray-400 tracking-tighter">Baths</p>
-                                    <p className="text-sm font-bold dark:text-white">{property.bathrooms}</p>
+                                    <p className="text-sm font-bold dark:text-white">{(property as any).bathrooms}</p>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="h-12 w-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl shadow-blue-600/30">
-                            <Maximize size={20} />
+                            <div className="flex items-center gap-2 group/stat">
+                                <div className="h-8 w-8 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center group-hover/stat:scale-110 transition-transform">
+                                    <Maximize size={14} />
+                                </div>
+                                <div>
+                                    <p className="text-[10px] font-black uppercase text-gray-400 tracking-tighter">Sqft</p>
+                                    <p className="text-sm font-bold dark:text-white">{(property as any).sqft}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

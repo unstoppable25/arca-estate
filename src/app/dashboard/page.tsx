@@ -81,7 +81,7 @@ export default async function DashboardPage() {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 relative z-10">
                         <Link href="/agents/list" className="h-14 px-8 rounded-2xl bg-blue-600 text-white flex items-center gap-3 text-xs font-black uppercase tracking-widest shadow-xl shadow-blue-600/30 hover:bg-blue-500 transition-all active:scale-95">
                             <Plus size={18} /> Post Asset
                         </Link>
@@ -185,7 +185,7 @@ export default async function DashboardPage() {
                 </div>
 
                 {/* Sidebar: Intelligence & Vault */}
-                <div className="space-y-12">
+                <div className="space-y-12 relative z-10">
                     {/* My Assets (Selling) Section */}
                     <div className="space-y-6">
                         <div className="flex items-center justify-between px-4">
@@ -246,12 +246,15 @@ export default async function DashboardPage() {
                         <h3 className="text-xs font-black uppercase tracking-[0.2em] text-gray-400 ml-4 italic">Security Vault</h3>
                         <div className="space-y-3">
                             {[
-                                { label: 'Saved Assets', icon: Heart, count: 4 },
-                                { label: 'Selection History', icon: Eye },
-                                { label: 'Access Logs', icon: KeyRound },
-                                { label: 'My Contracts', icon: ShieldCheck, variant: 'soon' },
+                                { label: 'Saved Assets', icon: Heart, count: 4, href: '/dashboard/saved' },
+                                { label: 'Selection History', icon: Eye, href: '/dashboard/history' },
+                                { label: 'Access Logs', icon: KeyRound, href: '/dashboard/logs' },
+                                { label: 'My Contracts', icon: ShieldCheck, variant: 'soon', href: '#' },
                             ].map((item, i) => (
-                                <button key={i} className="w-full h-16 flex items-center justify-between px-6 rounded-2xl bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 hover:border-blue-600/20 transition-all group">
+                                <Link key={i} href={item.href} className={cn(
+                                    "w-full h-16 flex items-center justify-between px-6 rounded-2xl bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 hover:border-blue-600/20 transition-all group",
+                                    item.variant === 'soon' && "opacity-50 pointer-events-none"
+                                )}>
                                     <div className="flex items-center gap-4 text-gray-400 group-hover:text-blue-600 transition-colors">
                                         <item.icon size={18} />
                                         <span className="text-[10px] font-black uppercase tracking-widest group-hover:text-gray-900 dark:group-hover:text-white">{item.label}</span>
@@ -263,7 +266,7 @@ export default async function DashboardPage() {
                                     ) : (
                                         <ChevronRight size={14} className="text-gray-300 group-hover:text-blue-600 transition-all" />
                                     )}
-                                </button>
+                                </Link>
                             ))}
                         </div>
                     </div>

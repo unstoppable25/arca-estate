@@ -76,7 +76,7 @@ export function Navbar() {
                                 )}
                                 <Link
                                     href="/dashboard"
-                                    className="text-[10px] font-black uppercase tracking-widest text-white bg-blue-600 px-6 py-2.5 rounded-xl hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 flex items-center gap-2"
+                                    className="hidden md:flex text-[10px] font-black uppercase tracking-widest text-white bg-blue-600 px-6 py-2.5 rounded-xl hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 items-center gap-2"
                                 >
                                     Command Center <Zap size={14} />
                                 </Link>
@@ -100,9 +100,9 @@ export function Navbar() {
                                 </Link>
                             </div>
                         )}
-                        <button className="lg:hidden h-12 w-12 flex items-center justify-center rounded-2xl bg-secondary text-gray-900 dark:text-white">
+                        <Link href="/dashboard" className="lg:hidden h-12 w-12 flex items-center justify-center rounded-2xl bg-secondary text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                             <Menu size={24} />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

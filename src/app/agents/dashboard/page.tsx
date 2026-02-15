@@ -30,6 +30,7 @@ export default function AgentDashboard() {
     const [user, setUser] = useState<any>(null);
     const [profile, setProfile] = useState<any>(null);
     const [listings, setListings] = useState<any[]>([]);
+    const [leads, setleads] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
     const supabase = createClient();
@@ -56,6 +57,19 @@ export default function AgentDashboard() {
                 .eq('owner_id', user.id)
                 .order('created_at', { ascending: false });
             setListings(properties || []);
+
+            // Fetch bookings for these properties
+            const { data: bookings } = await supabase
+                .from('bookings')
+                .select(`
+                    *,
+                    properties!inner(*),
+                    profiles:user_id(*)
+                `)
+                .eq('properties.owner_id', user.id)
+                .order('start_time', { ascending: true });
+
+            setleads(bookings || []);
 
             setLoading(false);
         };
@@ -183,9 +197,9 @@ export default function AgentDashboard() {
                 {/* Main Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
-                        { label: "Active Listings", value: listings.length, icon: Home, color: "blue", trend: "+2 this week" },
-                        { label: "Total Leads", value: "0", icon: Users, color: "purple", trend: "0% increase" },
-                        { label: "Scheduled Tours", value: "0", icon: Calendar, color: "green", trend: "Upcoming" },
+                        { label: "Active Listings", value: listings.length, icon: Home, color: "blue", trend: "Live Assets" },
+                        { label: "Total Leads", value: leads.length, icon: Users, color: "purple", trend: "Inquiries" },
+                        { label: "Scheduled Tours", value: leads.filter(l => new Date(l.start_time) > new Date()).length, icon: Calendar, color: "green", trend: "Upcoming" },
                         { label: "Market Reach", value: "0", icon: TrendingUp, color: "orange", trend: "Views" }
                     ].map((stat, i) => (
                         <div key={i} className="glass-card p-6 flex flex-col justify-between group hover:border-blue-600/20 transition-all cursor-pointer">
@@ -270,21 +284,29 @@ export default function AgentDashboard() {
                     <div className="space-y-6">
                         <h2 className="text-2xl font-black tracking-tighter uppercase italic dark:text-white">Recent Leads</h2>
                         <div className="glass-card p-6 divide-y divide-gray-100 dark:divide-gray-900">
-                            {[1, 2, 3].map((_, i) => (
-                                <div key={i} className="py-4 first:pt-0 last:pb-0 group cursor-pointer">
+                            {leads.length > 0 ? leads.slice(0, 5).map((lead: any) => (
+                                <div key={lead.id} className="py-4 first:pt-0 last:pb-0 group cursor-pointer">
                                     <div className="flex items-center gap-4 mb-2">
                                         <div className="h-10 w-10 rounded-full bg-blue-600/10 flex items-center justify-center text-blue-600 font-bold">
-                                            JS
+                                            {lead.profiles?.full_name?.substring(0, 2).toUpperCase() || 'U'}
                                         </div>
                                         <div>
-                                            <p className="font-bold text-sm dark:text-white">John Smith</p>
-                                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Inquiry Received</p>
+                                            <p className="font-bold text-sm dark:text-white">{lead.profiles?.full_name || 'Guest User'}</p>
+                                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{lead.properties.title}</p>
                                         </div>
-                                        <div className="ml-auto text-[10px] font-medium text-gray-400 italic">2h ago</div>
+                                        <div className="ml-auto text-[10px] font-medium text-gray-400 italic">
+                                            {new Date(lead.created_at).toLocaleDateString()}
+                                        </div>
                                     </div>
-                                    <p className="text-xs text-gray-500 line-clamp-2 italic">"I'm interested in viewing the Penthouse at 5th Ave. Is it available tomorrow?"</p>
+                                    <p className="text-xs text-gray-500 line-clamp-2 italic">
+                                        Scheduled viewing for {new Date(lead.start_time).toLocaleDateString()} at {new Date(lead.start_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                    </p>
                                 </div>
-                            ))}
+                            )) : (
+                                <div className="py-8 text-center text-gray-400 text-xs font-medium">
+                                    No active leads yet.
+                                </div>
+                            )}
                             <div className="pt-6">
                                 <button className="w-full py-3 rounded-2xl bg-secondary text-gray-500 text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                                     View All Conversations

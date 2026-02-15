@@ -1,0 +1,130 @@
+[2026-02-13T19:37:59.318Z] Received Body: {
+  "id": "Ez42YuDByAoqfqZN",
+  "messages": [
+    {
+      "parts": [
+        {
+          "type": "text",
+          "text": "hiii testing"
+        }
+      ],
+      "id": "kF464l7ufy8C5Gpy",
+      "role": "user"
+    }
+  ],
+  "trigger": "submit-message"
+}
+[2026-02-13T19:45:50.615Z] Received Body: {
+  "id": "Ez42YuDByAoqfqZN",
+  "messages": [
+    {
+      "parts": [
+        {
+          "type": "text",
+          "text": "hiii testing"
+        }
+      ],
+      "id": "kF464l7ufy8C5Gpy",
+      "role": "user"
+    },
+    {
+      "parts": [
+        {
+          "type": "text",
+          "text": "hiii testing"
+        }
+      ],
+      "id": "N2UETu2p4oMUQowc",
+      "role": "user"
+    }
+  ],
+  "trigger": "submit-message"
+}
+[2026-02-13T19:46:00.803Z] Received Body: {
+  "id": "Ez42YuDByAoqfqZN",
+  "messages": [
+    {
+      "parts": [
+        {
+          "type": "text",
+          "text": "hiii testing"
+        }
+      ],
+      "id": "kF464l7ufy8C5Gpy",
+      "role": "user"
+    },
+    {
+      "parts": [
+        {
+          "type": "text",
+          "text": "hiii testing"
+        }
+      ],
+      "id": "N2UETu2p4oMUQowc",
+      "role": "user"
+    },
+    {
+      "parts": [
+        {
+          "type": "text",
+          "text": "hiii testing"
+        }
+      ],
+      "id": "522dVSNKChSaqAu0",
+      "role": "user"
+    }
+  ],
+  "trigger": "submit-message"
+}
+[2026-02-13T20:20:05.301Z] [START] Protocol V3.0+ - Last Message: "hiii testing"
+[2026-02-13T20:20:05.309Z] [MODEL] Initializing stream with confirmed ID: gemini-flash-latest...
+[2026-02-13T20:20:05.342Z] [SUCCESS] Mapping to UI Message Stream...
+[2026-02-13T20:47:42.819Z] [START] Protocol V3.0+ - API Key Present: true - CWD: C:\Users\DELL\.gemini\antigravity\scratch\estateproject
+[2026-02-13T20:47:42.885Z] [MODEL] Initializing stream with confirmed ID: gemini-flash-latest...
+[2026-02-13T20:47:42.933Z] [SUCCESS] Mapping to UI Message Stream...
+[2026-02-13T20:47:52.742Z] [STREAM] Finished. Usage: {"inputTokens":105,"inputTokenDetails":{"noCacheTokens":105,"cacheReadTokens":0},"outputTokens":471,"outputTokenDetails":{"textTokens":98,"reasoningTokens":373},"totalTokens":576,"raw":{"thoughtsTokenCount":373,"promptTokenCount":105,"candidatesTokenCount":98,"totalTokenCount":576},"reasoningTokens":373,"cachedInputTokens":0}
+[2026-02-13T20:47:52.748Z] [STREAM] Full Text First 100: Greetings. As your dedicated Arca Prestige Curator, I can confirm that all systems governing our por...
+[2026-02-13T20:50:34.652Z] [START] Protocol V3.0+ - API Key Present: true - CWD: C:\Users\DELL\.gemini\antigravity\scratch\estateproject
+[2026-02-13T20:50:34.685Z] [MODEL] Initializing stream with confirmed ID: gemini-flash-latest...
+[2026-02-13T20:50:34.722Z] [SUCCESS] Returning toDataStreamResponse...
+[2026-02-13T20:50:34.733Z] [CRITICAL] POST Error: TypeError: result.toDataStreamResponse is not a function
+[2026-02-13T20:50:34.735Z] [STACK] TypeError: result.toDataStreamResponse is not a function
+    at POST (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\.next\dev\server\chunks\[root-of-the-server]__1abeafae._.js:105:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async AppRouteRouteModule.do (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js:5:37866)
+    at async AppRouteRouteModule.handle (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js:5:45156)
+    at async responseGenerator (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\.next\dev\server\chunks\node_modules_next_dist_cadae1cb._.js:9757:38)
+    at async AppRouteRouteModule.handleResponse (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js:1:191938)
+    at async handleResponse (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\.next\dev\server\chunks\node_modules_next_dist_cadae1cb._.js:9820:32)
+    at async Module.handler (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\.next\dev\server\chunks\node_modules_next_dist_cadae1cb._.js:9873:13)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\base-server.js:1442:9)
+    at async DevServer.renderPageComponent (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\base-server.js:1494:24)
+    at async DevServer.renderToResponseImpl (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\base-server.js:1544:32)
+    at async DevServer.pipeImpl (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\base-server.js:1038:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\next-server.js:395:17)
+    at async DevServer.handleRequestImpl (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\base-server.js:929:17)
+    at async C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\dev\next-dev-server.js:387:20
+    at async Span.traceAsyncFn (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\dev\next-dev-server.js:383:24)
+    at async invokeRender (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\lib\router-server.js:248:21)
+    at async handleRequest (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\lib\router-server.js:447:24)
+    at async requestHandlerImpl (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\lib\router-server.js:496:13)
+    at async Server.requestListener (C:\Users\DELL\.gemini\antigravity\scratch\estateproject\node_modules\next\dist\server\lib\start-server.js:226:13)
+[2026-02-13T20:58:15.958Z] [START] Protocol V3.0+ - API Key Present: true - CWD: C:\Users\DELL\.gemini\antigravity\scratch\estateproject
+[2026-02-13T20:58:16.000Z] [MODEL] Initializing stream with confirmed ID: gemini-flash-latest...
+[2026-02-13T20:58:16.160Z] [SUCCESS] Mapping to UI Message Stream...
+[2026-02-13T20:58:16.163Z] [DEBUG] Result Keys: _totalUsage,_finishReason,_rawFinishReason,_steps,outputSpecification,includeRawChunks,tools,addStream,closeStream,baseStream
+[2026-02-13T20:58:16.165Z] [DEBUG] Result Proto Keys: constructor,steps,finalStep,content,warnings,providerMetadata,text,reasoningText,reasoning,sources,files,toolCalls,staticToolCalls,dynamicToolCalls,toolResults,staticToolResults,dynamicToolResults,usage,request,response,totalUsage,finishReason,rawFinishReason,teeStream,textStream,fullStream,consumeStream,experimental_partialOutputStream,partialOutputStream,elementStream,output,toUIMessageStream,pipeUIMessageStreamToResponse,pipeTextStreamToResponse,toUIMessageStreamResponse,toTextStreamResponse
+[2026-02-13T20:58:30.100Z] [STREAM] Finished. Usage: {"inputTokens":105,"inputTokenDetails":{"noCacheTokens":105,"cacheReadTokens":0},"outputTokens":497,"outputTokenDetails":{"textTokens":147,"reasoningTokens":350},"totalTokens":602,"raw":{"thoughtsTokenCount":350,"promptTokenCount":105,"candidatesTokenCount":147,"totalTokenCount":602},"reasoningTokens":350,"cachedInputTokens":0}
+[2026-02-13T20:58:30.104Z] [STREAM] Full Text First 100: Greetings. I acknowledge your request for a diagnostic status report. 
+
+The Arca Prestige protocols ...
+[2026-02-13T21:00:20.219Z] [START] Protocol V3.0+ - API Key Present: true - CWD: C:\Users\DELL\.gemini\antigravity\scratch\estateproject
+[2026-02-13T21:00:20.255Z] [MODEL] Initializing stream with confirmed ID: gemini-flash-latest...
+[2026-02-13T21:00:20.474Z] [SUCCESS] Mapping to Text Stream Response...
+[2026-02-13T21:00:27.666Z] [STREAM] Finished. Usage: {"inputTokens":511,"inputTokenDetails":{"noCacheTokens":511,"cacheReadTokens":0},"outputTokens":562,"outputTokenDetails":{"textTokens":156,"reasoningTokens":406},"totalTokens":1073,"raw":{"thoughtsTokenCount":406,"promptTokenCount":511,"candidatesTokenCount":156,"totalTokenCount":1073},"reasoningTokens":406,"cachedInputTokens":0}
+[2026-02-13T21:00:27.677Z] [STREAM] Full Text First 100: Greetings. As the **Arca Prestige Curator**, I can confirm that all systems are functioning at the h...
+[2026-02-13T21:11:16.706Z] [START] Protocol V3.0+ - API Key Present: true - CWD: C:\Users\DELL\.gemini\antigravity\scratch\estateproject
+[2026-02-13T21:11:16.761Z] [MODEL] Initializing stream with confirmed ID: gemini-flash-latest...
+[2026-02-13T21:11:16.946Z] [SUCCESS] Mapping to Text Stream Response...
+[2026-02-13T21:11:17.088Z] [STREAM] Error callback: [object Object]

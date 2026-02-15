@@ -28,7 +28,7 @@ export function AIPrestigeCurator() {
                 content: "Welcome to Arca Elite. I am your Prestige Curator. How may I assist you in acquiring your next exceptional asset today?"
             }
         ]
-    });
+    } as any);
 
     const { messages = [], error, reload } = chat;
     const isActuallyLoading = (chat as any).isLoading ||
